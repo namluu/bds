@@ -90,7 +90,7 @@ class Database extends CI_Controller
 
     public function insertCustomer()
     {
-        $this->load->model('customer/customer_model', 'customer_model');
+        $this->load->model('user/customer_model', 'customer_model');
         $this->load->library('encryptor');
 
         $data = [

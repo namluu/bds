@@ -2,7 +2,7 @@
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class FormKey
+class Formkey
 {
     protected $CI;
 

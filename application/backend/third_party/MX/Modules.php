@@ -182,14 +182,14 @@ class Modules
 
 		$file = array_pop($segments);
 		$file_ext = (pathinfo($file, PATHINFO_EXTENSION)) ? $file : $file.EXT;
-
-		$path = ltrim(implode('/', $segments).'/', '/');
+		
+		$path = ltrim(implode('/', $segments).'/', '/');	
 		$module ? $modules[$module] = $path : $modules = array();
 
 		$folder = array_pop($segments);
-		
-		if ($base == 'models/') $modules[$folder] = ''; // put model in other module in list
 
+		if ($base == 'models/') $modules[$folder] = ''; // put model in other module in list
+		
 		if ( ! empty($segments)) 
 		{
 			$modules[array_shift($segments)] = ltrim(implode('/', $segments).'/','/');

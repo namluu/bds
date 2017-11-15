@@ -11,7 +11,7 @@ class Auth extends CI_Controller
         parent::__construct();
 
         $this->load->model('Adminauth_model');
-        $this->load->library('formkey');
+        $this->load->library('Formkey');
     }
 
     public function login()
