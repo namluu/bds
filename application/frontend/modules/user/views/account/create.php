@@ -1,6 +1,6 @@
 <h1><?php _e('Create New Customer Account') ?></h1>
 <br>
-<?php echo form_open('customer/account/create', 'class="form"'); ?>
+<?php echo form_open('', 'class="form"'); ?>
 <div class="form-group">
     <?php echo form_input('firstname', set_value('firstname'), ['class' => 'form-control', 'placeholder' => __('Firstname')]); ?>
 </div>

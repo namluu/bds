@@ -2,16 +2,16 @@
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Adminauth_model extends CI_Model
+class Auth_model extends CI_Model
 {
-    protected $_tableKey = 'username';
-    protected $_sessionKey = 'user';
+    protected $_tableKey = 'email';
+    protected $_sessionKey = 'customer';
 
     public function __construct()
     {
         parent::__construct();
         $this->load->library('encryptor');
-        $this->load->model('user/Adminuser_model');
+        $this->load->model('user/Customer_model');
     }
 
     public function checkAuthentication()
@@ -28,7 +28,7 @@ class Adminauth_model extends CI_Model
 
     public function authenticate($key, $password)
     {
-        $user = $this->Adminuser_model->get_by([$this->_tableKey => $key], true);
+        $user = $this->Customer_model->get_by([$this->_tableKey => $key], true);
         if (!$user) {
             throw new Exception('Invalid login or password.');
         }

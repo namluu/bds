@@ -13,8 +13,8 @@
     <div class="clearfix">
         <div class="float-right">
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="<?php echo base_url('customer/account/create') ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php _e('Register') ?></a></li>
-                <li class="list-inline-item"><a href="<?php echo base_url('customer/account/login') ?>"><?php echo _e('Login') ?></a></li>
+                <li class="list-inline-item"><a href="<?php echo base_url('user/account/create') ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php _e('Register') ?></a></li>
+                <li class="list-inline-item"><a href="<?php echo base_url('user/auth/login') ?>"><?php echo _e('Login') ?></a></li>
                 <li class="list-inline-item">
                     <select onchange="javascript:window.location.href='<?php echo base_url(); ?>LanguageSwitcher/switchLang/'+this.value;" class="selectpicker">
                         <option value="english" <?php if($this->session->userdata('site_lang') == 'english') echo 'selected="selected"'; ?> data-content="<img src='<?php echo $theme_url ?>images/cy-GB.png' width='24'> English">English</option>

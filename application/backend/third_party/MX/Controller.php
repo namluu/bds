@@ -56,19 +56,12 @@ class MX_Controller
 
 		/* custom user auth for backend */
 		$this->load->model('user/Adminauth_model');
-		$this->preDispatch();
+		$this->Adminauth_model->checkAuthentication();
 	}
 	
 	public function __get($class) 
 	{
 		return CI::$APP->$class;
-	}
-
-	public function preDispatch()
-	{
-		if (!$this->Adminauth_model->isLoggedIn()) {
-            redirect('user/auth/login');
-        }
 	}
 
 	public function redirectIndex()
