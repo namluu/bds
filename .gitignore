@@ -32,3 +32,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 #-------------------------
 application/frontend/config/database.php
 application/backend/config/database.php
+public/captcha/*
