@@ -13,8 +13,22 @@
     <div class="clearfix">
         <div class="float-right">
             <ul class="list-inline">
+                <?php if (isLogin()): $user = getCurrentUser() ?>
+                <li class="list-inline-item">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><span class="text-muted"><?php _e('Hello') ?></span> <?php echo  $user->firstname ?></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<?php echo base_url('user/account') ?>"><?php _e('My account') ?></a>
+                                <a class="dropdown-item" href="<?php echo base_url('user/auth/logout') ?>"><?php _e('Logout') ?></a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <?php else: ?>
                 <li class="list-inline-item"><a href="<?php echo base_url('user/account/create') ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php _e('Register') ?></a></li>
-                <li class="list-inline-item"><a href="<?php echo base_url('user/auth/login') ?>"><?php echo _e('Login') ?></a></li>
+                <li class="list-inline-item"><a href="<?php echo base_url('user/auth/login') ?>"><?php _e('Login') ?></a></li>
+                <?php endif; ?>
                 <li class="list-inline-item">
                     <select onchange="javascript:window.location.href='<?php echo base_url(); ?>LanguageSwitcher/switchLang/'+this.value;" class="selectpicker">
                         <option value="english" <?php if($this->session->userdata('site_lang') == 'english') echo 'selected="selected"'; ?> data-content="<img src='<?php echo $theme_url ?>images/cy-GB.png' width='24'> English">English</option>

@@ -7,6 +7,12 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
+application/frontend/logs/*
+!application/frontend/logs/index.html
+!application/frontend/logs/.htaccess
+application/backend/logs/*
+!application/backend/logs/index.html
+!application/backend/logs/.htaccess
 
 composer.lock
 

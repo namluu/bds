@@ -9,6 +9,7 @@ class Account extends MX_Controller
 
         $this->load->model('Auth_model');
         $this->load->model('Account_model');
+        $this->load->library('formkey');
         $this->preDispatch();
     }
 
@@ -78,6 +79,17 @@ class Account extends MX_Controller
 
         $data['main_view'] = 'account/create';
         $data['captcha'] = $captcha;
+        $this->load->view('layout/2columns', $data);
+    }
+
+    public function forgotpassword()
+    {
+        if ($this->Auth_model->isLoggedIn()) {
+            redirect('user/account');
+        }
+
+        $data['main_view'] = 'account/forgotpassword';
+        $data['form_key'] = $this->formkey->outputKey();
         $this->load->view('layout/2columns', $data);
     }
 }

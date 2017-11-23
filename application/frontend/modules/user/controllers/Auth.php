@@ -14,6 +14,11 @@ class Auth extends CI_Controller
         $this->load->library('formkey');
     }
 
+    public function isLogin()
+    {
+        return $this->Auth_model->isLoggedIn();
+    }
+
     public function login()
     {
         if ($this->Auth_model->isLoggedIn()) {

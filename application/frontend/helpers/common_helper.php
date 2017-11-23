@@ -117,3 +117,16 @@ function init_captcha()
         )
     ];
 }
+
+function isLogin()
+{
+    $ci =& get_instance();
+    $ci->load->model('user/Auth_model');
+    return $ci->Auth_model->isLoggedIn();
+}
+function getCurrentUser()
+{
+    $ci =& get_instance();
+    $ci->load->model('user/Auth_model');
+    return $ci->Auth_model->getUserSession();
+}
