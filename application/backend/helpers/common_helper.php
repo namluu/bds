@@ -61,3 +61,11 @@ function remove_sign($str)
         "D", "e", "u", "a");
     return str_replace($sign, $unsign, $str);
 }
+
+if ( ! function_exists('root_url')) {
+    function root_url($uri = '')
+    {
+        $CI =& get_instance();
+        return $CI->config->slash_item('root_url').$uri;
+    }
+}

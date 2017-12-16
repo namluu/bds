@@ -31,6 +31,8 @@ class Database extends CI_Controller
 
         $this->createCms();
         $this->insertCms();
+
+        $this->createLand();
     }
 
     public function createAdminUser()
@@ -135,6 +137,7 @@ class Database extends CI_Controller
         $this->dbforge->add_field('title varchar(255) NULL');
         $this->dbforge->add_field('alias varchar(255) NULL');
         $this->dbforge->add_field('content text NULL');
+        $this->dbforge->add_field('image varchar(255) NULL');
         $this->dbforge->add_field('created_at timestamp DEFAULT CURRENT_TIMESTAMP');
         $this->dbforge->add_field('updated_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP');
         $this->dbforge->add_field('category_id INT(10) NOT NULL');
@@ -192,6 +195,19 @@ class Database extends CI_Controller
         echo 'CMS sample data inserted!'.PHP_EOL;
     }
 
-    
+    public function createLand()
+    {
+        // article
+        $this->dbforge->add_field('id');
+        $this->dbforge->add_field('title varchar(255) NULL');
+        $this->dbforge->add_field('alias varchar(255) NULL');
+        $this->dbforge->add_field('content text NULL');
+        $this->dbforge->add_field('created_at timestamp DEFAULT CURRENT_TIMESTAMP');
+        $this->dbforge->add_field('updated_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP');
+
+        $this->dbforge->create_table('land_project', true);
+
+        echo 'Land tables created!'.PHP_EOL;
+    }
 
 }

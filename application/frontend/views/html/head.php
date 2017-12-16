@@ -5,3 +5,6 @@
 <link rel="stylesheet" href="<?php echo $theme_url ?>css/bootstrap-select.min.css">
 <link rel="stylesheet" href="<?php echo $theme_url ?>css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php echo $theme_url ?>css/styles.min.css" />
+
+<link rel="stylesheet" href="<?php echo $theme_url ?>js/slick/slick.css"/>
+<link rel="stylesheet" href="<?php echo $theme_url ?>js/slick/slick-theme.css"/>

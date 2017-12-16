@@ -45,7 +45,7 @@ class Auth extends CI_Controller
 
         $data['form_key'] = $this->formkey->outputKey();
         $data['main_view'] = 'auth/login';
-        $this->load->view('layout/empty', $data);
+        $this->load->view('layout/login', $data);
     }
 
     public function logout()

@@ -33,8 +33,5 @@ $theme_url = base_url() . 'public/bds/';
 </footer>
 
 <?php $this->load->view('html/profiler'); ?>
-<script src="<?php echo $theme_url ?>js/jquery-3.2.1.min.js"></script>
-<script src="<?php echo $theme_url ?>js/popper.min.js"></script>
-<script src="<?php echo $theme_url ?>js/bootstrap.min.js"></script>
 </body>
 </html>

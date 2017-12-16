@@ -39,8 +39,6 @@ class Article extends MX_Controller
                 if ($this->form_validation->run() == false) {
                     $this->session->set_flashdata('error', validation_errors());
                 } else {
-                    $alias = string_url_safe($data['title']);
-                    $data['alias'] = $this->article_model->get_unique_slug($alias, $id);
                     $this->article_model->save($data, $data['id']);
                     $this->session->set_flashdata('success', 'Save successfully');
                     $this->redirectIndex();
@@ -53,6 +51,7 @@ class Article extends MX_Controller
         $data['article'] = $article;
         $data['main_view'] = 'article/edit';
         $data['title'] = $id ? 'Edit article: '.$article->title : 'New article';
+        $data['image_upload'] = true;
         $this->load->view('layout/1column', $data);
     }
 
@@ -111,5 +110,14 @@ class Article extends MX_Controller
         $this->session->set_flashdata('success', 'Save successfully');
 
         $this->redirectIndex();
+    }
+
+    public function delete_image()
+    {
+        $id = $this->input->get_post('cid');
+        if($this->article_model->removeImage($id)){
+            exit('true');
+        }
+        exit('Something was wrong');
     }
 }
