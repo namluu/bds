@@ -51,82 +51,7 @@ $theme_url = base_url() . '';
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <div id="accordion" role="tablist">
-                        <div class="card">
-                            <div class="card-header" role="tab" id="headingOne">
-                                <h5 class="mb-0">
-                                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Customer
-                                    </a>
-                                </h5>
-                            </div>
-                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p><a href="<?php echo base_url('customer/customer') ?>">Manage customers</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" role="tab" id="headingOne">
-                                <h5 class="mb-0">
-                                    <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                                    CMS
-                                    </a>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p><a href="<?php echo base_url('cms/category') ?>">Category</a></p>
-                                    <p><a href="<?php echo base_url('cms/article') ?>">Article</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Reports</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Analytics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Export</a>
-                </li>
-            </ul>
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nav item</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nav item again</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">One more nav</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Another nav item</a>
-                </li>
-            </ul>
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nav item again</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">One more nav</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Another nav item</a>
-                </li>
-            </ul>
-        </nav>
+        <?php $this->load->view('html/nav'); ?>
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
             <?php $this->load->view('html/messages'); ?>
             <?php $this->load->view($main_view) ?>
@@ -138,9 +63,6 @@ $theme_url = base_url() . '';
         </main>
     </div>
 </div>
-
-<br>
-<hr>
 
 <script src="<?php echo $theme_url ?>js/jquery-2.1.4.min.js"></script>
 <script src="<?php echo $theme_url ?>js/popper.min.js"></script>
