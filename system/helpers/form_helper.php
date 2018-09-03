@@ -410,7 +410,7 @@ if ( ! function_exists('form_dropdown'))
 		$form = '<select '.rtrim(_parse_form_attributes($data, $defaults)).$extra.$multiple.">\n";
 
 		foreach ($options as $key => $val)
-		{
+		{	
 			$key = (string) $key;
 
 			if (is_array($val))

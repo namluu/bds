@@ -8,13 +8,15 @@ class MY_Model extends CI_Model
 
     protected $_order = '';
 
+    protected $_direction = '';
+
     public function get_all($limit = null, $start = 0)
     {
         if ($limit) {
             $this->db->limit($limit, $start);
         }
         
-        $this->db->order_by($this->_order);
+        $this->db->order_by($this->_order, $this->_direction);
         return $this->db->get($this->_table)->result();
     }
 
@@ -110,5 +112,29 @@ class MY_Model extends CI_Model
         } else {
             return false;
         }
+    }
+
+    public function num_rows()
+    {
+        return $this->db->count_all($this->_table);
+    }
+
+    public function get_data_array($fields = [])
+    {
+        if ($fields) {
+            $this->db->select($fields);
+        }
+        
+        return $this->db->get($this->_table)->result_array();
+    }
+
+    public function get_data_form($key, $name)
+    {
+        $data = $this->get_data_array([$key, $name]);
+        $result = [];
+        foreach ($data as $d) {
+            $result[$d[$key]] = $d[$name];
+        }
+        return $result;
     }
 }

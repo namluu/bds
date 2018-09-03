@@ -52,7 +52,11 @@ class MX_Controller
 		
 		/* autoload module items */
 		$this->load->_autoloader($this->autoload);
-		$this->output->enable_profiler(TRUE);
+
+		if(!$this->input->is_ajax_request()) {
+			$this->output->enable_profiler(TRUE);
+		}
+		
 	}
 	
 	public function __get($class) 

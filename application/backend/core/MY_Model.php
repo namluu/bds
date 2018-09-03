@@ -8,13 +8,15 @@ class MY_Model extends CI_Model
 
     protected $_order = '';
 
+    protected $_direction = '';
+
     public function get_all($limit = null, $start = 0)
     {
         if ($limit) {
             $this->db->limit($limit, $start);
         }
         
-        $this->db->order_by($this->_order);
+        $this->db->order_by($this->_order, $this->_direction);
         return $this->db->get($this->_table)->result();
     }
 

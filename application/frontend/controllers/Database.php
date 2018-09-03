@@ -33,6 +33,10 @@ class Database extends CI_Controller
         $this->insertCms();
 
         $this->createLand();
+        $this->createLandCategory();
+        $this->insertLand();
+
+        $this->createLocation();
     }
 
     public function createAdminUser()
@@ -208,6 +212,43 @@ class Database extends CI_Controller
         $this->dbforge->create_table('land_project', true);
 
         echo 'Land tables created!'.PHP_EOL;
+    }
+
+    public function createLandCategory()
+    {
+        $this->dbforge->add_field('id');
+        $this->dbforge->add_field('title varchar(255) NULL');
+        $this->dbforge->add_field('alias varchar(255) NULL');
+        $this->dbforge->add_field('created_at timestamp DEFAULT CURRENT_TIMESTAMP');
+        $this->dbforge->add_field('updated_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP');
+
+        $this->dbforge->create_table('land_category', true);
+
+        echo 'Land category tables created!'.PHP_EOL;
+    }
+
+    public function insertLand()
+    {
+        $this->load->model('land/Project_model', 'project_model');
+
+        $data = [
+            ['title' => 'Biệt thự mặt tiền đường Đặng Dung, Đa Kao, Quận 1 DT: 8.5x26m. Giá: 44 tỷ LH: 0902320238', 'alias' => string_url_safe('Biệt thự mặt tiền đường Đặng Dung, Đa Kao, Quận 1 DT: 8.5x26m. Giá: 44 tỷ LH: 0902320238')
+            ]
+        ];
+        $this->project_model->insert_batch($data);
+
+        echo 'Land sample data inserted!'.PHP_EOL;
+    }
+
+    public function createLocation()
+    {
+        $this->dbforge->add_field('id');
+        $this->dbforge->add_field('name varchar(255) NULL');
+        $this->dbforge->add_field('parent_id TINYINT(5) NULL DEFAULT 0');
+
+        $this->dbforge->create_table('location', true);
+
+        echo 'Location tables created!'.PHP_EOL;
     }
 
 }

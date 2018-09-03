@@ -1,6 +1,7 @@
 <?php
 $lang['Register'] = 'Đăng ký';
 $lang['Login'] = 'Đăng nhập';
+$lang['Home'] = 'Trang chủ';
 
 $lang['Create New Customer Account'] = 'Đăng ký tài khoản';
 $lang['Firstname'] = 'Tên';
